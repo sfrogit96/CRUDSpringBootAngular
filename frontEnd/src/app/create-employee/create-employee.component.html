@@ -1,0 +1,36 @@
+<h3>Create Employee</h3>
+<!-- <div [hidden]="submitted" style="width: 400px;"> -->
+                
+<form (ngSubmit)="onSubmit()">
+                        
+    <div>
+                <div *ngIf="employeeError?.firstName">
+                                <span class="text text-danger">{{employeeError.firstName}}</span>
+                </div>   
+            <label for="name">First Name</label>
+            <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+    </div>
+    <div>
+                <div *ngIf="employeeError?.firstName">
+                                <span class="text text-danger">{{employeeError.lastName}}</span>
+                </div>   
+            <label for="name">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
+    </div>
+    <div>
+                <div *ngIf="employeeError?.firstName">
+                                <span class="text text-danger">{{employeeError.emailId}}</span>
+                </div>   
+            <label for="name">Email</label>
+            <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+    </div>
+     
+    <button style="margin-top: 15px" type="submit" class="btn btn-success" >Submit</button>
+    <button style="margin-top: 15px; margin-left: 5px" type="reset" class="btn btn-success" >Reset</button>  
+</form>
+<!-- </div> -->
+<div [hidden]="!submitted" class="alert alert-success">
+        <h4 style="margin-bottom: 15px">You submitted successfully!</h4> 
+        <button (click)="gotoList()" class="btn btn-success" >Back</button>
+        <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+      </div>
